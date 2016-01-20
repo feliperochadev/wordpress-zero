@@ -2,7 +2,7 @@
   "name": "wordpress-zero",
   "version": "1.0.0",
   "description": "Tema para início dos templates no wordpress",
-  "main": "index.js",
+  "main": "index.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
