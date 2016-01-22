@@ -2,3 +2,5 @@
 node_modules
 zero.sublime-project
 zero.sublime-workspace
+bower.json
+bower_components
