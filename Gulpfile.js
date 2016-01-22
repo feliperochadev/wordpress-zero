@@ -16,16 +16,28 @@ var dist = 'build/wp-content/'+themeName;
 
 /*Variaveis de arquivos*/
 var cssFiles = [
-
+    src+'/css/style.scss',
+    src+'/css/components/buttons.scss',
+    src+'/css/components/forms.scss',
+    src+'/css/header.scss',
+    src+'/css/base.scss',
+    src+'/css/sidebar.scss',
+    src+'/css/content.scss',
+    src+'/css/footer.scss'
 ];
 var jsFiles = [
-
+    'bower_components/jquery/jquery.js',
+    src+'/js/scripts.js'
 ];
 var copyFiles = [
 
 ];
 
 /*CSS*/
+gulp.task('normalizeCSS', function(){
+    gulp.src('node_modules/normalize.css/normalize.css')
+    .pipe(gulp.dest(dist));
+});
 gulp.task('css', function(){
     gulp.src(cssFiles)
     .pipe(sass().on('error', sass.logError))
