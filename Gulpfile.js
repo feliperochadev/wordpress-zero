@@ -36,13 +36,21 @@ var copyFiles = [
 /*CSS*/
 gulp.task('normalizeCSS', function(){
     gulp.src('node_modules/normalize.css/normalize.css')
-    .pipe(gulp.dest(dist));
+    .pipe(minifyCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest(src+'/css/build'));
 });
-gulp.task('css', function(){
+/*Sass*/
+gulp.task('sass-build', function(){
     gulp.src(cssFiles)
     .pipe(sass().on('error', sass.logError))
-    .pipe(concat('style.css'))
+    .pipe(concat('styles-concat.css'))
     .pipe(minifyCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest(src+'/css/build'));
+});
+/*style.css*/
+gulp.task('buildCSS', function(){
+    gulp.src(src+'/css/build/*.css')
+    .pipe(concat('style.css'))
     .pipe(gulp.dest(dist));
 });
 
@@ -58,7 +66,7 @@ gulp.task('js', function(){
     }))
     .pipe(concat('scripts.js'))
     .pipe(uglify({mangle:false}))
-    .pipe(gulp.dest(dist));
+    .pipe(gulp.dest(dist+'/js'));
 });
 
 /*Watch*/
