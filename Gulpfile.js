@@ -15,8 +15,7 @@ var src = 'src/'+themeName;
 var dist = 'build/wp-content/'+themeName;
 
 /*Variaveis de arquivos*/
-var cssFiles = [
-    src+'/css/style.scss',
+var sassFiles = [
     src+'/css/components/buttons.scss',
     src+'/css/components/forms.scss',
     src+'/css/header.scss',
@@ -24,6 +23,10 @@ var cssFiles = [
     src+'/css/sidebar.scss',
     src+'/css/content.scss',
     src+'/css/footer.scss'
+];
+var cssFiles = [
+    src+'/css/theme-name.css',
+    'node_modules/normalize.css/normalize.css'    
 ];
 var jsFiles = [
     'bower_components/jquery/jquery.js',
@@ -34,22 +37,18 @@ var copyFiles = [
 ];
 
 /*CSS*/
-gulp.task('normalizeCSS', function(){
-    gulp.src('node_modules/normalize.css/normalize.css')
-    .pipe(minifyCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest(src+'/css/build'));
-});
-/*Sass*/
-gulp.task('sass-build', function(){
+gulp.task('css', function(){
     gulp.src(cssFiles)
+    .pipe(minifyCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('temp/css/build'));
+
+    gulp.src(sassFiles)
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('styles-concat.css'))
     .pipe(minifyCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest(src+'/css/build'));
-});
-/*style.css*/
-gulp.task('buildCSS', function(){
-    gulp.src(src+'/css/build/*.css')
+    .pipe(gulp.dest('temp/css/build'));
+
+    gulp.src('temp/css/build/*.css')
     .pipe(concat('style.css'))
     .pipe(gulp.dest(dist));
 });
@@ -71,7 +70,6 @@ gulp.task('js', function(){
 
 /*Watch*/
 gulp.task('watch', function(){
-    gulp.watch(sassFiles, ['css']);
     gulp.watch(jsFiles, ['js']);
 });
 
