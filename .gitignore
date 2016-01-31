@@ -5,3 +5,5 @@ zero.sublime-workspace
 bower_components
 temp
 build
+/nbproject/private/
+nbproject
