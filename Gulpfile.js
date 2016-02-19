@@ -16,17 +16,11 @@ var dist = 'build/wp-content/'+themeName;
 
 /*Variaveis de arquivos*/
 var sassFiles = [
-    src+'/css/components/buttons.scss',
-    src+'/css/components/forms.scss',
-    src+'/css/header.scss',
-    src+'/css/base.scss',
-    src+'/css/sidebar.scss',
-    src+'/css/content.scss',
-    src+'/css/footer.scss'
+    src+'/css/content.scss'
 ];
 var cssFiles = [
     src+'/css/theme-name.css',
-    'node_modules/normalize.css/normalize.css'    
+    'node_modules/normalize.css/normalize.css'
 ];
 var jsFiles = [
     'bower_components/jquery/jquery.js',
