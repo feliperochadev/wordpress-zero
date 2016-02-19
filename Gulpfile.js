@@ -12,7 +12,7 @@ watch = require ('gulp-watch');
 /*Caminhos dase pastas, theme-name deve ser substituído pelo nome do tema*/
 var themeName = 'theme-name';
 var src = 'src/'+themeName;
-var dist = 'build/wp-content/'+themeName;
+var dist = 'build/wp-content/themes/'+themeName;
 
 /*Variaveis de arquivos*/
 var sassFiles = [
