@@ -4,8 +4,6 @@
 
 add_theme_support( 'post-thumbails' );
 
-/*Sidebar Widgets*/
-
 /**
  * Sidebars
  *
