@@ -9,10 +9,10 @@ imagemin = require('gulp-imagemin'),
 watch = require ('gulp-watch');
 
 
-/*Caminhos dase pastas, theme-name deve ser substituído pelo nome do tema*/
+/*Caminhos das pastas, theme-name deve ser substituído pelo nome do tema*/
 var themeName = 'theme-name';
 var src = 'src/'+themeName;
-var dist = 'build/wp-content/themes/'+themeName;
+var dist = 'www/wp-content/themes/'+themeName;
 
 /*Variaveis de arquivos*/
 var sassFiles = [

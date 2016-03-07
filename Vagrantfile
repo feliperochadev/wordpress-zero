@@ -1,25 +1,17 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-USER = "vagrant"
-SITE = "nome-do-site"
+SITE = "nomesite"
 
-#Versão da sintaxe do Vagrant
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/trusty64"
+    config.vm.network :forwarded_port, guest: 80, host: 8931, auto_correct: true
+    config.vm.provision "shell", path: "install.sh"
 
-    config.vm.provider "virtualbox"
-
-    config.vm.network "private_network", ip: "192.168.70.3"
-    config.vm.network "public_network"
-
-    config.vm.provision :shell, path: "scripts/bootstrap-ubuntu.sh", privileged: true
-    config.ssh.username = USER
-    config.vm.synced_folder "./", "/home/" + USER  + "/" + SITE  + "/", create: true
-
-    config.vm.hostname = SITE
-
+    config.vm.synced_folder "./", "/var/www", create: true, group: "www-data", owner: "www-data"
     config.vm.provider "virtualbox" do |v, override|
         v.memory = 768
         v.cpus = 2
