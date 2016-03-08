@@ -38,4 +38,8 @@ echo "=============== Configuring Nginx"
     rm -rf /etc/nginx/sites-available/default
 
     service nginx restart > /dev/null
+
+echo "=============== Criando base de dados"
+    mysql -uroot -proot -e "create database wordpress";
+
 echo "=============== Sistema Configurado"
