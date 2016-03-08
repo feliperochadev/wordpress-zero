@@ -1,7 +1,6 @@
 <?php
 
 /* Habilita as thumbs */
-
 add_theme_support( 'post-thumbails' );
 
 /**
@@ -21,5 +20,15 @@ function arphabet_widgets_init() {
 
 }
 add_action( 'widgets_init', 'arphabet_widgets_init' );
+
+/*
+ * Remove &nbsp;
+*/
+function remove_empty_lines( $content ){
+    // replace empty lines
+    $content = preg_replace("/&nbsp;/", "", $content);
+    return $content;
+}
+add_action('content_save_pre', 'remove_empty_lines');
 
 ?>
