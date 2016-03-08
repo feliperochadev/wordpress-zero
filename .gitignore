@@ -7,3 +7,5 @@ temp
 build
 /nbproject/private/
 nbproject
+.vagrant
+www
