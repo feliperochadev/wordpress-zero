@@ -1,6 +1,10 @@
 #!/bin/bash
+#Config provision/config/nginx_vhost
+site=nomesite
 
 echo "=============== Rodando Shell"
+
+export DEBIAN_FRONTEND=noninteractive
 
 echo "=============== Update"
     sudo apt-get update
@@ -31,15 +35,16 @@ echo "=============== Installing PHP extensions"
     apt-get install mysql-server -y > /dev/null
 
 echo "=============== Configuring Nginx"
-    cp /var/www/provision/config/nginx_vhost /etc/nginx/sites-available/nginx_vhost > /dev/null
-
+    cp /home/$site/public_html/provision/config/nginx_vhost /etc/nginx/sites-available/nginx_vhost > /dev/null
     ln -s /etc/nginx/sites-available/nginx_vhost /etc/nginx/sites-enabled/
-
-    rm -rf /etc/nginx/sites-available/default
+    rm /etc/nginx/sites-enabled/default
+    chmod 777 -R /var/log/nginx
 
     service nginx restart > /dev/null
 
 echo "=============== Criando base de dados"
     mysql -uroot -proot -e "create database wordpress";
+    mysql -uroot -proot -e "CREATE USER 'usuario_site'@'localhost' IDENTIFIED BY 'root'";
+    mysql -uroot -proot -e "GRANT CREATE ON *.* TO 'usuario_site'@'localhost'";
 
 echo "=============== Sistema Configurado"

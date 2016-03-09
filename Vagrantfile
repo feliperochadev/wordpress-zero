@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
     config.vm.network :forwarded_port, guest: 80, host: 8931, auto_correct: true
     config.vm.provision "shell", path: "install.sh"
 
-    config.vm.synced_folder "./", "/var/www", create: true, group: "www-data", owner: "www-data"
+    config.vm.synced_folder "./", "/home/" + SITE + "/public_html", create: true, group: "www-data", owner: "www-data"
     config.vm.provider "virtualbox" do |v, override|
         v.memory = 768
         v.cpus = 2
