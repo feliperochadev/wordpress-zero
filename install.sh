@@ -1,6 +1,9 @@
 #!/bin/bash
 #Config provision/config/nginx_vhost
 site=nomesite
+usuariobd=nome_usuario
+senhabd=root
+nomebd=nomebd
 
 echo "=============== Rodando Shell"
 
@@ -43,8 +46,8 @@ echo "=============== Configuring Nginx"
     service nginx restart > /dev/null
 
 echo "=============== Criando base de dados"
-    mysql -uroot -proot -e "create database wordpress";
-    mysql -uroot -proot -e "CREATE USER 'usuario_site'@'localhost' IDENTIFIED BY 'root'";
-    mysql -uroot -proot -e "GRANT CREATE ON *.* TO 'usuario_site'@'localhost'";
+    mysql -uroot -proot -e "create database $nomebd";
+    mysql -uroot -proot -e "CREATE USER '$usuariobd'@'localhost' IDENTIFIED BY '$senha'";
+    mysql -uroot -proot -e "GRANT CREATE ON *.* TO '$usuariobd'@'localhost'";
 
 echo "=============== Sistema Configurado"
