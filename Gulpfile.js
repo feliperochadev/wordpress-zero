@@ -11,7 +11,7 @@ watch = require ('gulp-watch');
 
 /*Caminhos das pastas, theme-name deve ser substituído pelo nome do tema*/
 var themeName = 'theme-name';
-var src = 'src/'+themeName;
+var src = 'src/';
 var dist = 'www/wp-content/themes/'+themeName;
 
 /*Variaveis de arquivos*/
@@ -21,14 +21,14 @@ var sassFiles = [
     src+'/css/base/variaveis.scss',
     src+'/css/layout/home.scss',
     src+'/css/layout/pages.scss',
-    src+'/css/layout/single.scss',
+    src+'/css/layout/single.scss'
 ];
 var cssFiles = [
-    src+'/css/theme-name.css',
+    src+'/css/styles.css',
     'node_modules/normalize.css/normalize.css'
 ];
 var jsFiles = [
-    'bower_components/jquery/jquery.js',
+    'bower_components/jquery/dist/jquery.js',
     src+'/js/scripts.js'
 ];
 var copyFiles = [
@@ -55,13 +55,6 @@ gulp.task('css', function(){
 /*JS*/
 gulp.task('js', function(){
     gulp.src(jsFiles)
-    .pipe(jslint({
-        node: true,
-        evil: true,
-        nomen: true,
-        global: [],
-        predef: []
-    }))
     .pipe(concat('scripts.js'))
     .pipe(uglify({mangle:false}))
     .pipe(gulp.dest(dist+'/js'));

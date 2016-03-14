@@ -1,0 +1,4 @@
+/*Scripts*/
+$(document).ready( function(){
+
+});
