@@ -11,7 +11,7 @@ watch = require ('gulp-watch');
 
 /*Caminhos das pastas, theme-name deve ser substituído pelo nome do tema*/
 var themeName = 'theme-name';
-var src = 'src/';
+var src = 'src';
 var dist = 'www/wp-content/themes/'+themeName;
 
 /*Variaveis de arquivos*/
@@ -32,7 +32,8 @@ var jsFiles = [
     src+'/js/scripts.js'
 ];
 var copyFiles = [
-
+    src+'/*.php',
+    src+'/*.png'
 ];
 
 /*CSS*/
@@ -60,9 +61,14 @@ gulp.task('js', function(){
     .pipe(gulp.dest(dist+'/js'));
 });
 
+/*Cópia de arquivos*/
+gulp.task('copia', function(){
+    gulp.src(copyFiles)
+    .pipe(gulp.dest(dist));
+});
 /*Watch*/
 gulp.task('watch', function(){
     gulp.watch(jsFiles, ['js']);
 });
 
-gulp.task('default', ['css', 'js', 'watch']);
+gulp.task('default', ['css', 'js', 'copia', 'watch']);
