@@ -16,6 +16,7 @@ var dist = 'www/wp-content/themes/'+themeName;
 
 /*Variaveis de arquivos*/
 var sassFiles = [
+    src+'/css/styles.scss',
     src+'/css/base/buttons.scss',
     src+'/css/base/tipografia.scss',
     src+'/css/base/variaveis.scss',
@@ -24,7 +25,6 @@ var sassFiles = [
     src+'/css/layout/single.scss'
 ];
 var cssFiles = [
-    src+'/css/styles.css',
     'node_modules/normalize.css/normalize.css'
 ];
 var jsFiles = [
@@ -38,7 +38,7 @@ var copyFiles = [
 
 /*CSS*/
 gulp.task('css', function(){
-    gulp.src(cssFiles)
+     gulp.src(cssFiles)
     .pipe(minifyCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('temp/css/build'));
 
