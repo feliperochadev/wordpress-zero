@@ -16,9 +16,9 @@ var dist = 'www/wp-content/themes/'+themeName;
 
 /*Variaveis de arquivos*/
 var sassFiles = [
-    src+'/css/base/buttons.scss',
-    src+'/css/base/tipografia.scss',
     src+'/css/base/variaveis.scss',
+    src+'/css/base/tipografia.scss',
+    src+'/css/base/buttons.scss',
     src+'/css/layout/home.scss',
     src+'/css/layout/pages.scss',
     src+'/css/layout/single.scss'
