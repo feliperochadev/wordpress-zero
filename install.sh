@@ -45,6 +45,9 @@ echo "=============== Configuring Nginx"
 
     service nginx restart > /dev/null
 
+echo "=============== Imagick"
+    sudo apt-get install php5-imagick
+
 echo "=============== Criando base de dados"
     mysql -uroot -proot -e "create database $nomebd";
     mysql -uroot -proot -e "CREATE USER '$usuariobd'@'localhost' IDENTIFIED BY '$senha'";
