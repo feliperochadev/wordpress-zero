@@ -16,21 +16,14 @@ var dist = 'www/wp-content/themes/'+themeName;
 
 /*Variaveis de arquivos*/
 var sassFiles = [
+    src+'/css/config.scss',
+    src+'/css/base/normalize.scss',
     src+'/css/base/variaveis.scss',
     src+'/css/base/tipografia.scss',
     src+'/css/base/buttons.scss',
     src+'/css/layout/home.scss',
     src+'/css/layout/pages.scss',
     src+'/css/layout/single.scss'
-];
-var cssFiles = [
-    src+'/css/config.css',
-    'node_modules/normalize.css/normalize.css'
-];
-var builCssFiles = [
-    'temp/css/build/config.css',
-    'temp/css/build/normalize.css',
-    'temp/css/build/styles-concat.css'
 ];
 var jsFiles = [
     'bower_components/jquery/dist/jquery.js',
@@ -43,18 +36,10 @@ var copyFiles = [
 
 /*CSS*/
 gulp.task('css', function(){
-     gulp.src(cssFiles)
-    .pipe(minifyCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('temp/css/build'));
-
     gulp.src(sassFiles)
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('styles-concat.css'))
     .pipe(minifyCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('temp/css/build'));
-
-    gulp.src(builCssFiles)
-    .pipe(concat('style.css'))
     .pipe(gulp.dest(dist));
 });
 
@@ -74,7 +59,6 @@ gulp.task('copia', function(){
 /*Watch*/
 gulp.task('watch', function(){
     gulp.watch(jsFiles, ['js']);
-    gulp.watch(cssFiles, ['css']);
     gulp.watch(sassFiles, ['css']);
     gulp.watch(copyFiles, ['copia']);
 });
