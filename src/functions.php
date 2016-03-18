@@ -1,7 +1,7 @@
 <?php
 
 /* Habilita as thumbs */
-add_theme_support( 'post-thumbails' );
+add_theme_support( 'post-thumbnails' );
 
 /**
  * Sidebars
