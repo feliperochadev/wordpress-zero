@@ -38,7 +38,7 @@ echo "=============== Installing PHP extensions"
     apt-get install mysql-server -y > /dev/null
 
 echo "=============== Configuring Nginx"
-    cp /home/$site/public_html/provision/config/nginx_vhost /etc/nginx/sites-available/nginx_vhost > /dev/null
+    cp /home/$site/public_html/nginx_vhost /etc/nginx/sites-available/nginx_vhost > /dev/null
     ln -s /etc/nginx/sites-available/nginx_vhost /etc/nginx/sites-enabled/
     rm /etc/nginx/sites-enabled/default
     chmod 777 -R /var/log/nginx
