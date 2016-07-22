@@ -1,4 +1,9 @@
 /*Scripts*/
-$(document).ready( function(){
+(function($) {
+    $(document).ready( function(){
 
-});
+    });
+    $(window).load( function(){
+
+    });
+})(jQuery);
