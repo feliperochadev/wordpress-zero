@@ -38,7 +38,7 @@ var copyFiles = [
 gulp.task('css', function(){
     gulp.src(sassFiles)
     .pipe(sass().on('error', sass.logError))
-    .pipe(concat('styles-concat.css'))
+    .pipe(concat('style.css'))
     .pipe(minifyCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest(dist));
 });

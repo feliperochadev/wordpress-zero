@@ -1,10 +1,17 @@
+# Mac
 .DS_Store
+
+# Sublime
+*.sublime-*
+
+# PhpStorm
+.idea
+
+# Node JS
 node_modules
-zero.sublime-project
-zero.sublime-workspace
-bower_components
-temp
-build
-/nbproject/private/
-nbproject
-.vagrant
+
+# Netbeans
+nbproject/
+
+# Vagrant
+.vagrant/
