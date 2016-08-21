@@ -10,21 +10,10 @@ watch = require ('gulp-watch');
 
 
 /*Caminhos das pastas, theme-name deve ser substituído pelo nome do tema*/
-var themeName = 'wordpress-zero';
+var themeName = 'valverdegodard';
 var src = 'src';
 var dist = 'www/wp-content/themes/'+themeName;
 
-/*Variaveis de arquivos*/
-var sassFiles = [
-    src+'/css/config.scss',
-    src+'/css/base/normalize.scss',
-    src+'/css/base/variaveis.scss',
-    src+'/css/base/tipografia.scss',
-    src+'/css/base/buttons.scss',
-    src+'/css/layout/home.scss',
-    src+'/css/layout/pages.scss',
-    src+'/css/layout/single.scss'
-];
 var jsFiles = [
     'bower_components/jquery/dist/jquery.js',
     src+'/js/scripts.js'
@@ -36,7 +25,7 @@ var copyFiles = [
 
 /*CSS*/
 gulp.task('css', function(){
-    gulp.src(sassFiles)
+    gulp.src(src+'/css/config.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('style.css'))
     .pipe(minifyCSS({compatibility: 'ie8'}))
@@ -59,7 +48,7 @@ gulp.task('copia', function(){
 /*Watch*/
 gulp.task('watch', function(){
     gulp.watch(jsFiles, ['js']);
-    gulp.watch(sassFiles, ['css']);
+    gulp.watch(src+'/css/**/**', ['css']);
     gulp.watch(copyFiles, ['copia']);
 });
 

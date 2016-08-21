@@ -7,3 +7,19 @@
     Author URI: www.pulsearte.com
     Tags: Wordpress, html5, css3, jquery, normalize
 */
+
+//base
+@import "base/normalize.scss";
+@import "base/reset.scss";
+@import "base/tipografia.scss";
+@import "base/buttons.scss";
+@import "base/variaveis.scss";
+
+//components
+@import "components/grid.scss";
+
+//layout
+@import "layout/header.scss";
+@import "layout/home.scss";
+@import "layout/pages.scss";
+@import "layout/single.scss";
