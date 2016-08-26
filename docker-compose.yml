@@ -1,0 +1,31 @@
+proxy:
+  image: jwilder/nginx-proxy
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+    - ./infra/nginx/certs/:/etc/nginx/certs/
+  ports:
+    - "80:80"
+    - "443:443"
+
+web:
+  image: montefuscolo/wordpress
+  volumes:
+    - ./src/:/var/www/html/
+
+  environment:
+    - CERT_NAME=default
+    - VIRTUAL_HOST=nomedosite.com.br
+    - WORDPRESS_WP_DEBUG=true
+  links:
+    - db:mysql
+
+db:
+  image: mariadb
+  environment:
+    - MYSQL_DATABASE=root
+    - MYSQL_ROOT_PASSWORD=root
+    - TERM=xterm
+  volumes:
+    - ./db/:/docker-entrypoint-initdb.d/
+  ports:
+      - "3306:3306"
