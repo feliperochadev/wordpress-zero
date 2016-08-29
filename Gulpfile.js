@@ -10,7 +10,7 @@ watch = require ('gulp-watch');
 
 
 /*Caminhos das pastas, theme-name deve ser substituído pelo nome do tema*/
-var themeName = 'valverdegodard';
+var themeName = 'wordpress-zero';
 var src = 'src';
 var dist = 'www/wp-content/themes/'+themeName;
 
