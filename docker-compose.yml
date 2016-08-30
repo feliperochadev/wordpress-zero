@@ -20,7 +20,7 @@ web:
 db:
   image: mariadb
   environment:
-    - MYSQL_DATABASE=root
+    - MYSQL_DATABASE=nomebase
     - MYSQL_ROOT_PASSWORD=root
     - TERM=xterm
   volumes:
