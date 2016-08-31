@@ -30,6 +30,9 @@ gulp.task('css', function(){
     .pipe(concat('style.css'))
     .pipe(minifyCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest(dist));
+
+    gulp.src(src+'/css/admin/login.css')
+    pipe(gulp.dest(dist+'/admin/css'));
 });
 
 /*JS*/
