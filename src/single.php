@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+	<?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>
 
 		<!-- post thumbnail -->
 		<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
