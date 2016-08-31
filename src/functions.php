@@ -32,7 +32,7 @@ function remove_empty_lines( $content ){
 add_action('content_save_pre', 'remove_empty_lines');
 
 /*
- * Remove width e hight quando colocada imagem no post
+ * Remove width e height quando colocada imagem no post
 */
 function remove_width_attribute( $html ) {
    $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
