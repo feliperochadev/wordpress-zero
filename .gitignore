@@ -16,3 +16,6 @@ nbproject/
 
 # Vagrant
 .vagrant/
+
+#Build
+www/

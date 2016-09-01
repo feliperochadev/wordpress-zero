@@ -25,6 +25,12 @@ var copyFiles = [
 
 /*CSS*/
 gulp.task('css', function(){
+    /* Copia o Normalize e transforma em sass*/
+    gulp.src('node_modules/normalize.css/normalize.css')
+    .pipe(concat('normalize.scss'))
+    .pipe(gulp.dest(src+'/css/base'));
+
+    /* Gera o sass */
     gulp.src(src+'/css/config.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('style.css'))
@@ -32,7 +38,7 @@ gulp.task('css', function(){
     .pipe(gulp.dest(dist));
 
     gulp.src(src+'/css/admin/login.css')
-    pipe(gulp.dest(dist+'/admin/css'));
+    .pipe(gulp.dest(dist+'/admin/css'));
 });
 
 /*JS*/
