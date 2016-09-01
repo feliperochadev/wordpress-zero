@@ -5,6 +5,10 @@ Tema para início dos templates no wordpress
 Na pasta src estão os arquivos editáveis para construção do template. A pasta www (será gerado após rodar o gulp) está o projeto final, aqui deve ser colocado os arquivos do wordpress baixados em wordpress.org.
 
 ## Docker
+- https://github.com/jwilder/nginx-proxy
+- https://github.com/jwilder/montefuscolo/wordpress
+- https://hub.docker.com/_/mariadb/
+
 Para rodar o docker digite no terminal
 
 ```sh
